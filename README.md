@@ -1,2 +1,2 @@
 # React Quiz App
-https://react-quiz-18102001.netlify.app/
+https://react-quiz-with-timer.netlify.app/
