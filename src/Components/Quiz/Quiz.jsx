@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import "./index.scss";
-import { resultInitalState } from "./constant";
+import "./Quiz.scss";
+import "../../Styles/index.scss";
+import { resultInitalState } from "../../constant";
+import Timer from "../Timer/Timer";
 
 const Quiz = ({ questions }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -9,6 +11,7 @@ const Quiz = ({ questions }) => {
   const [answer, setAnswer] = useState(null);
   const [result, setResult] = useState(resultInitalState);
   const [showResult, setShowResult] = useState(false);
+  const [showTimer, setShowTimer] = useState(true);
 
   const onAnswerClick = (answer, index) => {
     setAnswerIndex(index);
@@ -17,10 +20,11 @@ const Quiz = ({ questions }) => {
     } else setAnswer(false);
   };
 
-  const onClickNext = () => {
+  const onClickNext = ( finalAnswer ) => {
     setAnswerIndex(null);
+    setShowTimer(false);
     setResult((prev) =>
-      answer
+      finalAnswer
         ? {
             ...prev,
             score: prev.score + 5,
@@ -38,6 +42,10 @@ const Quiz = ({ questions }) => {
       setCurrentQuestion(0);
       setShowResult(true);
     }
+
+    setTimeout(() => {
+      setShowTimer(true);
+    });
   };
 
   const onTryAgain = () => {
@@ -45,10 +53,16 @@ const Quiz = ({ questions }) => {
     setShowResult(false);
   };
 
+  const handleTimeUp = () => {
+    setAnswer(false);
+    onClickNext(false);
+  };
+
   return (
     <div className="container">
       {!showResult ? (
         <>
+          {showTimer && <Timer duration={10} onTimeUp={handleTimeUp} />}
           <span className="active-question-no">{currentQuestion + 1}</span>
           <span className="total-question-no">/{questions.length}</span>
 
@@ -67,7 +81,7 @@ const Quiz = ({ questions }) => {
           </ul>
           <div className="footer">
             <button
-              onClick={() => onClickNext()}
+              onClick={() => onClickNext(answer)}
               disabled={answerIndex === null}
             >
               {currentQuestion === questions.length - 1 ? "Finish" : "Next"}

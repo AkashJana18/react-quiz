@@ -1,5 +1,5 @@
 
-import Quiz from './Quiz.jsx'
+import Quiz from './Components/Quiz/Quiz.jsx'
 import { jsQuizz } from './constant.js'
 
 function App() {
@@ -7,7 +7,6 @@ function App() {
   return (
     <>
     <div>
-
       <Quiz questions={jsQuizz.questions} />
     </div>
     </>

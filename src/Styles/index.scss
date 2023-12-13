@@ -1,0 +1,18 @@
+$primary: #071952;
+$accent: #35A29F;
+$bg: white;
+$bg-accent: #7ED7C1;
+$disabled: #9c9c9c;
+$foreground: #2d264b;
+
+
+body{
+    font-family: monospace;
+    background: linear-gradient(45deg, $primary 0.03%, $bg-accent);
+    color: $foreground;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 30px;
+    height: 100vh;
+}

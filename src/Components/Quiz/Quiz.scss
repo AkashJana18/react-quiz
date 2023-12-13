@@ -1,0 +1,76 @@
+@import "../../Styles/index.scss" ;
+.container {
+  background: $bg;
+  flex-direction: column;
+  border-radius: 32px;
+  width: 500px;
+  box-sizing: border-box;
+  margin-top: 100px;
+  padding: 30px 60px;
+  box-shadow: 20px 20px 20px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+
+  .active-question-no {
+    font-size: 32px;
+    font-weight: 500;
+    color: $primary;
+  }
+  .total-question-no {
+    font-size: 16px;
+    color: $disabled;
+    font-weight: 500;
+  }
+
+  ul {
+    margin-top: 20px;
+    margin-left: -40px;
+    li {
+      text-decoration: none;
+      list-style: none;
+      color: $foreground;
+      font-size: 16px;
+      background: $bg;
+      border: 1px solid $disabled;
+      border-radius: 16px;
+      margin-top: 15px;
+      padding: 11px;
+      cursor: pointer;
+    }
+    .selected-answer {
+      background: $accent;
+      border-color: $primary;
+      color: $bg;
+      border-width: 2px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    background: linear-gradient(45deg, $accent, $bg-accent);
+    color: $bg;
+    border-radius: 9px;
+    font-size: 18px;
+    padding: 10px 42px;
+    border: 1px solid $bg-accent;
+    box-shadow: 3px 3px 20px 2px rgba(0, 0, 0, 0.4);
+    outline: none;
+    margin-top: 15px;
+    cursor: pointer;
+
+    &:disabled {
+      background: $disabled;
+      border: none;
+      color: $bg;
+      cursor: not-allowed;
+    }
+  }
+
+  .result {
+    font-size: 24px;
+    text-align: center;
+  }
+}

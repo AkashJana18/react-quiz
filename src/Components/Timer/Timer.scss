@@ -1,0 +1,17 @@
+@import "../../Styles/index.scss";
+
+.timer-container{
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    width: 90%;
+    border: 1px solid $disabled ;
+    border-radius: 3px;
+
+    .progress-bar{
+        height: 5px;
+        transition-duration: .1s;
+        width: 0;
+        transition-timing-function: linear;
+    }
+}
